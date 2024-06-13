@@ -113,7 +113,7 @@ def ali_baba_scrapping(url):
         list_prices = driver.find_elements(By.XPATH, "//div[@class='sku-module-horizon-list']//div[@class='sku-item-left']//div[@class='discountPrice-price']")
 
         for n in range(len(list_names)):
-            color_or_size[f'{list_names[n].get_attribute('innerHTML')}'] = list_prices[n].get_attribute('innerHTML')
+            color_or_size[f"{list_names[n].get_attribute('innerHTML')}"] = list_prices[n].get_attribute('innerHTML')
 
         data['color or size'] = color_or_size
 
@@ -151,7 +151,7 @@ def ali_baba_scrapping(url):
         else:
             data['text_detail'] = 'None'
         
-        result[f'{url['href']}'] = data
+        result[f"{url['href']}"] = data
 
     get_subcategory(url)
 
