@@ -25,7 +25,10 @@ def parser_wb(url):
     data = {}
 
     data['title'] = driver.find_element(By.XPATH, "//div[@class='product-page__grid']//h1").text
-    data['price'] = driver.find_element(By.XPATH, "//div[@class='price-block']//ins").text
+    
+    price = driver.find_element(By.XPATH, "//div[@class='price-block']//ins").get_attribute('innerText')
+    new_price = ' '.join(price.split('\xa0')).strip()
+    data['price'] = new_price
 
     slider_img_list = driver.find_elements(By.XPATH, "//div[@class='product-page__main-slider']//img")
     slider_img_list_src = []
